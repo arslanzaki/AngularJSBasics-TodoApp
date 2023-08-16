@@ -9,9 +9,15 @@ import { Todo } from 'src/app/Todo';
 export class TodoItemComponent {
   @Input() todo!: Todo;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoToggle: EventEmitter<Todo> = new EventEmitter();
 
   onClick(todo: Todo) {
     this.todoDelete.emit(todo);
-    console.log('Clicked');
+    //console.log('Clicked');
+  }
+
+  onToggle(todo: Todo) {
+    this.todoToggle.emit(todo);
+    //console.log('Toggled')
   }
 }

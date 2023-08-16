@@ -1,5 +1,9 @@
 <div class="my-8 flex flex-col items-center justify-center border-2 p-6 ">
-    <h3 class="text-center font-bold text-xl">{{todo.title}}</h3>
-    <p class="text-center text-sm">{{todo.desc}}</p>
+    <h3 [ngClass]="{'line-through': !todo.active}" class="text-center font-bold text-xl">{{todo.title}}</h3>
+    <p [ngClass]="{'line-through': !todo.active}" class="text-center text-sm">{{todo.desc}}</p>
+    <div class="flex items-center space-x-2 mt-4">
+        <input type="checkbox" [checked]="!todo.active" (click)="onToggle(todo)"/>
+        <label class="text-sm">Mark As Done</label>
+    </div>
     <button class="py-2 px-4 bg-red-500 text-white text-sm rounded mt-4" (click)="onClick(todo)">Delete</button>
 </div>

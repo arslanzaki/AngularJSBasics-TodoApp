@@ -1,12 +1,14 @@
 <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
-<h3 class="text-center text-2xl font-bold mt-6">My Todos</h3>
+<div class="border border-indigo-600 border-b w-[75%] mx-auto my-12"></div>
+<h3 class="text-center lg:text-2xl text-xl font-bold mt-6">My Todos</h3>
 <div *ngIf="this.todos.length === 0; else elseBlock" class="text-center mt-6">No Todos To Display</div>
 <ng-template #elseBlock>
-  <div class="my-8" #elseBlock>
+  <div class="my-8">
     <div *ngFor="let todo of todos">
       <app-todo-item
         [todo]="todo"
         (todoDelete)="deleteTodo($event)"
+        (todoToggle)="toggleTodo($event)"
       ></app-todo-item>
     </div>
   </div>
